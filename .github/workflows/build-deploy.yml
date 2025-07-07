@@ -10,3 +10,12 @@ jobs:
         uses: actions/checkout@v4
       - name: say hi to andrew
         run: echo "hello andrew"
+      - name: Install python version 3.12.3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.3"
+      - name: update pip
+        run: python -m pip install --upgrade pip
+      - name: install all dependencies
+        run: pip install -r requirements.txt
+        
