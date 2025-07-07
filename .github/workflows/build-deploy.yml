@@ -4,6 +4,15 @@ on: ["push","pull_request"]
 
 jobs:
   job1:
+    env:
+    DATABASE_HOSTNAME: localhost
+    DATABASE_PORT: 5432
+    DATABASE_PASSWORD: andrew
+    DATABASE_NAME: fastapi
+    DATABASE_USERNAME: postgres
+    SECRET_KEY : 42b0f5562c4b91c75f683cf2454f9e5bce92b1d30b6e6dd062053f31472a9ef4
+    ALGORITHM : HS256
+    ACCESS_TOKEN_EXPIRE_MINUTES : 30
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
@@ -20,5 +29,4 @@ jobs:
         run: pip install -r requirements.txt
       - name: test with pytest
         run: |
-          pip install pytest
-          pytest
+          pip install pyte
