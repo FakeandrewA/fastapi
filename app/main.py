@@ -15,7 +15,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["https://www.google.com"]
+origins = ["*"] # Allow all origins for development. 
+# In production, you should restrict this to your frontend's domain.
+# origins = ["https://www.your-frontend-domain.com"]
 
 app.add_middleware(
     CORSMiddleware,

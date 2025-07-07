@@ -16,7 +16,7 @@ def login(user_credentials:OAuth2PasswordRequestForm=Depends(),db: Session=Depen
     #password
 
     user:models.User = db.query(models.User).filter(models.User.email==user_credentials.username).first()
-    print(user.id)
+    # print(user.id)
     if user:
         if verify(user_credentials.password,user.password):
             #create a token and return 
@@ -25,6 +25,6 @@ def login(user_credentials:OAuth2PasswordRequestForm=Depends(),db: Session=Depen
         else:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Invalid Credentials")
         
-    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Not foooound")
+    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Invalid Credentials")
 
 
