@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#sad
 echo "Running Alembic migrations..."
 alembic upgrade head
 
